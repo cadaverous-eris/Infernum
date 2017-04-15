@@ -1,0 +1,16 @@
+[
+{
+  "modid": "infernum",
+  "name": "Infernum",
+  "description": "A magic mod based around harnessing the infernal powers of the nether",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["mangoose"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
