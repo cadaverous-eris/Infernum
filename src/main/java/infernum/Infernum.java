@@ -2,6 +2,7 @@ package infernum;
 
 import infernum.common.CommonProxy;
 import infernum.common.items.InfernumItems;
+import infernum.common.spells.SpellRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -39,6 +40,8 @@ public class Infernum {
 			return "infernum.name";
 		}
 	};
+	
+	public static SpellRegistry SPELL_REGISTRY = new SpellRegistry();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
