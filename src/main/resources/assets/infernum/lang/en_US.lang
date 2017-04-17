@@ -1,5 +1,16 @@
+#Creative Tab
 itemGroup.infernum.name=Infernum
 
+#Items
 item.infernum.zombie_pigman_heart.name=Rotting Pigman Heart
 item.infernum.infernal_spell_book.name=Infernal Tome
 item.infernum.spell_page.name=Spell Page
+
+#Spells
+infernum.empty.name=
+infernum.blazing_fist.name=Blazing Fist
+infernum.soul_drain.name=Soul Drain
+
+#Spell Descriptions (21 chars per line)
+infernum.blazing_fist.desc=Punch foes with fists of hellfire
+infernum.soul_drain.desc=Drain the souls of nearby creatures, dealing damage slowly over time

@@ -1,7 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "infernum:items/spell_page"
+        "0": "infernum:items/spell_page",
+	"1": "minecraft:font/ascii"
     },
     "elements": [
         {
@@ -110,12 +111,12 @@
 		"thirdperson_righthand": {
  "rotation": [ 95, 0, 0 ],
  "translation": [ -2, 3, 4 ],
- "scale": [ 0.5, 0.5, 0.5 ]
+ "scale": [ 0.625, 0.625, 0.625 ]
  },
 		"firstperson_righthand": {
- "rotation": [ 80, 350, 35 ], "translation": [ 4, 3, -3 ], "scale": [ 0.625, 0.625, 0.625 ] },
+ "rotation": [ 80, 180, -20 ], "translation": [ 4, 3, -3 ], "scale": [ 0.875, 0.875, 0.875 ] },
 		"fixed": {
- "rotation": [ 88, 0, 180 ], "translation": [ 0, 0, -7], "scale": [ 1, 1, 1 ]
+ "rotation": [ 92, 180, 180 ], "translation": [ 0, 0, -7], "scale": [ 1, 1, 1 ]
  }
 
 	}

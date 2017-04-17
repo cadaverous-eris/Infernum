@@ -1,11 +1,13 @@
 package infernum;
 
+import infernum.client.EventHandlerClient;
 import infernum.common.CommonProxy;
 import infernum.common.items.InfernumItems;
 import infernum.common.spells.SpellRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -45,6 +47,7 @@ public class Infernum {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		MinecraftForge.EVENT_BUS.register(new EventHandlerClient());
 		proxy.preInit();
 	}
 

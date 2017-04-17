@@ -54,14 +54,9 @@ public class ItemSpellPage extends ItemBase {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
 		if (!getSpell(stack).equals(Spell.EMPTY_SPELL)) {
-			tooltip.add(I18n.translateToLocal(TextFormatting.DARK_RED + "" + TextFormatting.ITALIC
-					+ getSpell(stack).getUnlocalizedName() + ".name"));
+			tooltip.add(TextFormatting.DARK_RED + "" + TextFormatting.ITALIC
+					+ I18n.translateToLocal(getSpell(stack).getUnlocalizedName() + ".name"));
 		}
-	}
-
-	@Override
-	public boolean hasEffect(ItemStack stack) {
-		return !getSpell(stack).equals(Spell.EMPTY_SPELL);
 	}
 
 	public static Spell getSpell(ItemStack stack) {
@@ -139,7 +134,7 @@ public class ItemSpellPage extends ItemBase {
 		}
 		return EnumRarity.COMMON;
 	}
-	
+
 	public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
 		Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
 		if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
