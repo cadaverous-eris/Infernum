@@ -2,6 +2,7 @@ package infernum;
 
 import infernum.client.EventHandlerClient;
 import infernum.common.CommonProxy;
+import infernum.common.EventHandlerCommon;
 import infernum.common.items.InfernumItems;
 import infernum.common.spells.SpellRegistry;
 import net.minecraft.creativetab.CreativeTabs;
@@ -48,6 +49,7 @@ public class Infernum {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(new EventHandlerClient());
+		MinecraftForge.EVENT_BUS.register(new EventHandlerCommon());
 		proxy.preInit();
 	}
 

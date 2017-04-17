@@ -157,7 +157,7 @@ public class ModelSpellPage implements IPerspectiveAwareModel {
         return new BakedModelSpellPage(model, textQuads);
 	}
 
-	private static final class SpellPageOverrideList extends ItemOverrideList {
+	public static final class SpellPageOverrideList extends ItemOverrideList {
 		public static final SpellPageOverrideList INSTANCE = new SpellPageOverrideList();
 		
 		private final Map<String, IBakedModel> cache;
@@ -165,6 +165,10 @@ public class ModelSpellPage implements IPerspectiveAwareModel {
 		public SpellPageOverrideList() {
 			super(ImmutableList.<ItemOverride>of());
 			this.cache = new HashMap<String, IBakedModel>();
+		}
+		
+		public void clearCache() {
+			this.cache.clear();
 		}
 
 		@Override
@@ -186,9 +190,9 @@ public class ModelSpellPage implements IPerspectiveAwareModel {
 				
 				BakedModelSpellPage bakedBakedModel = rebake(model, spell);
 				cache.put(name, bakedBakedModel);
+
 				return bakedBakedModel;
 			}
-
 			return cache.get(name);
 		}
 

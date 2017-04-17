@@ -4,6 +4,7 @@ import infernum.client.models.BakedModelSpellPage;
 import infernum.client.models.ModelSpellPage;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraftforge.client.event.ModelBakeEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -18,6 +19,7 @@ public class EventHandlerClient {
 			IBakedModel existingModel = (IBakedModel) object;
 			ModelSpellPage customModel = new ModelSpellPage(existingModel);
 			event.getModelRegistry().putObject(ModelSpellPage.modelResourceLocation, customModel);
+			ModelSpellPage.SpellPageOverrideList.INSTANCE.clearCache();
 		}
 	}
 

@@ -22,7 +22,7 @@ public class SpellBlazingFist extends Spell {
 			EntityLivingBase entityLivingBase = (EntityLivingBase) entity;
 			entityLivingBase.attackEntityFrom(new EntityDamageSourceSpell(player), 4);
 			entityLivingBase.setFire(5);
-			if (!world.isRemote) {
+			if (!world.isRemote && world instanceof WorldServer) {
 				((WorldServer) world).spawnParticle(EnumParticleTypes.FLAME, true, entity.posX, entity.posY + (entity.height / 2F), entity.posZ, world.rand.nextInt(8) + 12, entity.width / 2F, entity.height / 2F, entity.width / 2F, 0.01F);
 			}
 		}
