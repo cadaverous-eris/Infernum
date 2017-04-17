@@ -11,6 +11,12 @@ infernum.empty.name=
 infernum.blazing_fist.name=Blazing Fist
 infernum.soul_drain.name=Soul Drain
 
+#Spell Casting Types
+instant.name=Instant
+melee.name=Melee
+continuous.name=Continuous
+charged.name=Charged
+
 #Spell Descriptions (21 chars per line)
 infernum.blazing_fist.desc=Punch foes with fists of hellfire
 infernum.soul_drain.desc=Drain the souls of nearby creatures, dealing damage slowly over time

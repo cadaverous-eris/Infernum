@@ -13,7 +13,7 @@ import net.minecraft.world.WorldServer;
 public class SpellBlazingFist extends Spell {
 
 	public SpellBlazingFist() {
-		super("blazing_fist", 5, 0, 0);
+		super("blazing_fist", 5, 0, 0, EnumCastingType.MELEE);
 	}
 
 	@Override

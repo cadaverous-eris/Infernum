@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.registry.IForgeRegistryEntry;
 
 public abstract class Spell {
 
-	public static final Spell EMPTY_SPELL = new Spell("empty", 0, 0, 0) {
+	public static final Spell EMPTY_SPELL = new Spell("empty", 0, 0, 0, EnumCastingType.INSTANT) {
 	};
 
 	private final ResourceLocation registryName;
@@ -23,13 +23,15 @@ public abstract class Spell {
 	private final int cost;
 	private final int useTime;
 	private final int rarity;
+	private final EnumCastingType castingType;
 
-	public Spell(String name, int cost, int useTime, int rarity) {
+	public Spell(String name, int cost, int useTime, int rarity, EnumCastingType castingType) {
 		this.unlocalizedName = Infernum.MODID + "." + name;
 		this.cost = cost;
 		this.useTime = useTime;
 		this.rarity = rarity;
 		this.registryName = new ResourceLocation(name);
+		this.castingType = castingType;
 		Infernum.SPELL_REGISTRY.register(this);
 	}
 
@@ -76,7 +78,11 @@ public abstract class Spell {
 	public int getRarity() {
 		return this.rarity;
 	}
-
+	
+	public EnumCastingType getCastingType() {
+		return this.castingType;
+	}
+	
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Spell)) {
@@ -99,6 +105,23 @@ public abstract class Spell {
 			return false;
 		}
 		return true;
+	}
+	
+	public static enum EnumCastingType implements IStringSerializable {
+		
+		MELEE("melee"), INSTANT("instant"), CHARGED("charged"), CONTINUOUS("continuous");
+		
+		private String name;
+		
+		private EnumCastingType(String name) {
+			this.name= name;
+		}
+
+		@Override
+		public String getName() {
+			return this.name;
+		}
+		
 	}
 
 }

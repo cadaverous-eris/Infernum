@@ -1,12 +1,14 @@
 package infernum.client.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.vecmath.Matrix3f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
 
@@ -23,6 +25,7 @@ import infernum.common.items.ItemSpellPage;
 import infernum.common.spells.Spell;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -38,6 +41,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.IPerspectiveAwareModel;
@@ -107,12 +112,59 @@ public class ModelSpellPage implements IPerspectiveAwareModel {
 		}
 		return Pair.of(this, mat);
 	}
+	
+	private static BakedModelSpellPage rebake(ModelSpellPage model, Spell spell) {	
+		Matrix4f m = new Matrix4f();
+        m.m20 = 1f / 128f;
+        m.m01 = m.m12 = -m.m20;
+        m.m33 = 1;
+        Matrix3f rotation = new Matrix3f();
+        m.getRotationScale(rotation);
+        Matrix3f angle = new Matrix3f();
+        angle.rotZ(1.5708F);
+        rotation.mul(rotation, angle);
+        m.setRotationScale(rotation);
+        m.setScale(0.75F * m.getScale());
+        m.setTranslation(new Vector3f(0.8625F, 0.095F, 0.8625F));
+		SimpleModelFontRenderer fontRenderer = new SimpleModelFontRenderer(Minecraft.getMinecraft().gameSettings, font, Minecraft.getMinecraft().getTextureManager(), false, m, DefaultVertexFormats.ITEM) {
+			@Override
+			protected float renderUnicodeChar(char c, boolean italic) {
+				return super.renderDefaultChar(126, italic);
+			}
+		};
+		TextureAtlasSprite fontSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(font2.toString());
+		List<BakedQuad> textQuads = new ArrayList<BakedQuad>();
+		
+		fontRenderer.setSprite(fontSprite);
+        fontRenderer.setFillBlanks(false);
+        String name = TextFormatting.BOLD + I18n.translateToLocal(spell.getUnlocalizedName() + ".name");
+        String text = I18n.translateToLocal(spell.getUnlocalizedName() + ".desc");
+        String castingType = "--" + I18n.translateToLocal(spell.getCastingType().getName() + ".name") + "--";
+        
+        int yOffset = 0;
+        fontRenderer.drawString(name, (126 - fontRenderer.getStringWidth(name)) / 2, yOffset, 0x007A0000);
+        yOffset += (fontRenderer.FONT_HEIGHT + 1);
+        List<String> lines = fontRenderer.listFormattedStringToWidth(text, 126);
+        for (int line = 0; line < lines.size(); line++) {
+        	int offset = ((126 - fontRenderer.getStringWidth(lines.get(line))) / 2);
+        	fontRenderer.drawString(lines.get(line), offset, yOffset, 0x004F0000);
+        	yOffset += fontRenderer.FONT_HEIGHT;
+        }
+        yOffset += 5;
+        fontRenderer.drawString(castingType, (126 - fontRenderer.getStringWidth(castingType)) / 2, yOffset, 0x00210000);
+		
+        textQuads.addAll(fontRenderer.build());
+        return new BakedModelSpellPage(model, textQuads);
+	}
 
 	private static final class SpellPageOverrideList extends ItemOverrideList {
 		public static final SpellPageOverrideList INSTANCE = new SpellPageOverrideList();
+		
+		private final Map<String, IBakedModel> cache;
 
 		public SpellPageOverrideList() {
 			super(ImmutableList.<ItemOverride>of());
+			this.cache = new HashMap<String, IBakedModel>();
 		}
 
 		@Override
@@ -125,20 +177,19 @@ public class ModelSpellPage implements IPerspectiveAwareModel {
 			if (spell == null || spell.equals(Spell.EMPTY_SPELL)) {
 				return originalModel;
 			}
+			
+			String name = spell.getRegistryName().toString();
+			
+			if (!cache.containsKey(name)) {
+				ModelSpellPage model = (ModelSpellPage) originalModel;
+				TextureAtlasSprite fontSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(font2.toString());
+				
+				BakedModelSpellPage bakedBakedModel = rebake(model, spell);
+				cache.put(name, bakedBakedModel);
+				return bakedBakedModel;
+			}
 
-			ModelSpellPage model = (ModelSpellPage) originalModel;
-
-			String desc = spell.getUnlocalizedName() + ".desc";
-
-			Function<ResourceLocation, TextureAtlasSprite> textureGetter;
-			textureGetter = new Function<ResourceLocation, TextureAtlasSprite>() {
-				public TextureAtlasSprite apply(ResourceLocation location) {
-					return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(location.toString());
-				}
-			};
-			TextureAtlasSprite fontSprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(font2.toString());
-
-			return new BakedModelSpellPage(model, desc, fontSprite);
+			return cache.get(name);
 		}
 
 	}

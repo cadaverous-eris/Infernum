@@ -6,6 +6,7 @@ import com.google.common.collect.Multimap;
 
 import infernum.Infernum;
 import infernum.common.spells.Spell;
+import infernum.common.spells.Spell.EnumCastingType;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -83,7 +84,17 @@ public class ItemSpellPage extends ItemBase {
 
 	@Override
 	public EnumAction getItemUseAction(ItemStack stack) {
-		return EnumAction.BOW;
+		switch (getSpell(stack).getCastingType()) {
+		case INSTANT:
+			return EnumAction.NONE;
+		case MELEE:
+			return EnumAction.NONE;
+		case CONTINUOUS:
+			return EnumAction.BOW;
+		case CHARGED:
+			return EnumAction.BOW;
+		}
+		return EnumAction.NONE;
 	}
 
 	@Override

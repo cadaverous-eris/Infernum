@@ -21,7 +21,7 @@ import network.PacketHandler;
 public class SpellSoulDrain extends Spell {
 
 	public SpellSoulDrain() {
-		super("soul_drain", 10, 72000, 2);
+		super("soul_drain", 10, 72000, 2, EnumCastingType.CONTINUOUS);
 	}
 
 	@Override
