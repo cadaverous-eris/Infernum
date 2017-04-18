@@ -15,6 +15,16 @@ item.infernum.beating_pigman_heart.name=Beating Pigman Heart
 item.infernum.infernal_spell_book.name=Infernal Tome
 item.infernum.spell_page.name=Spell Scroll
 
+#Entities
+entity.zombie_pigman_mage.name=Zombie Pigman Mage
+entity.pigman_mage.name=Pigman Mage
+
+#Pigman Messages
+pigman.say.more_gold.message=*Grunt* More gold!
+pigman.say.need_gold.message=*Oink* Want... Gold!
+pigman.say.angry.message=*SQUEEEEEEE*
+pigman.say.thanks.message=*Squeal* Great thank! Take magic!
+
 #Spells
 infernum.empty.name=
 infernum.blazing_fist.name=Blazing Fist

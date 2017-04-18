@@ -32,8 +32,7 @@ public class EntityWitheringBolt extends Entity implements IProjectile {
 		this.setSize(0.5F, 0.5F);
 	}
 
-	public EntityWitheringBolt(World world, EntityLivingBase shooter, int strength, double x, double y, double z,
-			double xVel, double yVel, double zVel, float vel) {
+	public EntityWitheringBolt(World world, EntityLivingBase shooter, int strength, double x, double y, double z) {
 		super(world);
 		this.setSize(0.5F, 0.5F);
 		this.strength = strength;
@@ -56,7 +55,7 @@ public class EntityWitheringBolt extends Entity implements IProjectile {
 		this.prevRotationYaw = this.rotationYaw;
 		this.prevRotationPitch = this.rotationPitch;
 	}
-
+	
 	@Override
 	public void setThrowableHeading(double x, double y, double z, float velocity, float inaccuracy) {
 		float f = MathHelper.sqrt(x * x + y * y + z * z);

@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import com.google.common.collect.BiMap;
@@ -53,6 +54,13 @@ public class SpellRegistry {
 	
 	public Set<ResourceLocation> getKeys() {
 		return REGISTRY.keySet();
+	}
+	
+	public Spell randSpell(Random rand) {
+		Collection<Spell> spells = REGISTRY.values();
+		spells.remove(Spell.EMPTY_SPELL);
+		Spell[] spellList = spells.toArray(new Spell[spells.size()]);
+		return spellList[rand.nextInt(spellList.length)];
 	}
 
 }

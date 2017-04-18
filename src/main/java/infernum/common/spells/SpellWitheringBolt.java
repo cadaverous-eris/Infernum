@@ -33,8 +33,8 @@ public class SpellWitheringBolt extends Spell {
 			double x = player.posX + lookVec.xCoord;
 			double y = player.posY + lookVec.yCoord + player.eyeHeight;
 			double z = player.posZ + lookVec.zCoord;
-			EntityWitheringBolt bolt = new EntityWitheringBolt(world, player, 1, x, y, z, 0, 0, 0, 0F);
-			bolt.setAim(player, player.rotationPitch, player.rotationYaw, 0.5F, 0.08F);
+			EntityWitheringBolt bolt = new EntityWitheringBolt(world, player, 1, x, y, z);
+			bolt.setAim(player, player.rotationPitch, player.rotationYaw, 0.75F, 0.08F);
 			world.spawnEntity(bolt);
 		}
 	}

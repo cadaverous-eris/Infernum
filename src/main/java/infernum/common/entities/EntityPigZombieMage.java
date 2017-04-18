@@ -14,6 +14,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -52,6 +53,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.datafix.DataFixer;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
@@ -91,8 +93,6 @@ public class EntityPigZombieMage extends EntityMob implements IRangedAttackMob {
 		this.tasks.addTask(5, new EntityAIWanderAvoidWater(this, 1.0D));
 		this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.tasks.addTask(6, new EntityAILookIdle(this));
-		//this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false, new Class[0]));
-		//this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 		this.applyEntityAI();
 	}
 
@@ -103,8 +103,10 @@ public class EntityPigZombieMage extends EntityMob implements IRangedAttackMob {
 
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
 		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
 
 	protected void updateAITasks() {
@@ -131,6 +133,10 @@ public class EntityPigZombieMage extends EntityMob implements IRangedAttackMob {
 
 	public boolean getCanSpawnHere() {
 		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL;
+	}
+
+	public EnumCreatureAttribute getCreatureAttribute() {
+		return EnumCreatureAttribute.UNDEAD;
 	}
 
 	public boolean isNotColliding() {
@@ -181,14 +187,15 @@ public class EntityPigZombieMage extends EntityMob implements IRangedAttackMob {
 			return super.attackEntityFrom(source, amount);
 		}
 	}
-	
+
 	public void chargeAnimation() {
 		if (!world.isRemote && world instanceof WorldServer) {
 			Vec3d lookVec = this.getLookVec();
 			double x = this.posX + lookVec.xCoord;
 			double y = this.posY + lookVec.yCoord + this.getEyeHeight();
 			double z = this.posZ + lookVec.zCoord;
-			((WorldServer) world).spawnParticle(EnumParticleTypes.SMOKE_NORMAL, true, x, y, z, world.rand.nextInt(2), 0.01, 0.01, 0.01, 0);
+			((WorldServer) world).spawnParticle(EnumParticleTypes.SMOKE_NORMAL, true, x, y, z, world.rand.nextInt(2),
+					0.01, 0.01, 0.01, 0);
 		}
 	}
 
@@ -260,9 +267,17 @@ public class EntityPigZombieMage extends EntityMob implements IRangedAttackMob {
 		double x = this.posX + lookVec.xCoord;
 		double y = this.posY + lookVec.yCoord + this.getEyeHeight();
 		double z = this.posZ + lookVec.zCoord;
-		EntityWitheringBolt bolt = new EntityWitheringBolt(this.world, this, 0, x, y, z, 0, 0, 0, 0F);
-		bolt.setAim(this, this.rotationPitch, this.rotationYaw, (float) (0.3 + (0.05F * (this.world.getDifficulty().getDifficultyId()))),
+		EntityWitheringBolt bolt = new EntityWitheringBolt(this.world, this, 0, x, y, z);
+		/*
+		bolt.setAim(this, this.rotationPitch, this.rotationYaw,
+				(float) (0.3 + (0.05F * (this.world.getDifficulty().getDifficultyId()))),
 				(float) (14 - this.world.getDifficulty().getDifficultyId() * 4));
+		*/
+		double d0 = target.posX - this.posX;
+        double d1 = target.posY - this.posY;
+        double d2 = target.posZ - this.posZ;
+        bolt.setThrowableHeading(d0, d1, d2, (float) (0.45 + (0.1F * (this.world.getDifficulty().getDifficultyId()))), (float)(14 - this.world.getDifficulty().getDifficultyId() * 4));
+		
 		this.world.spawnEntity(bolt);
 	}
 
@@ -316,7 +331,7 @@ public class EntityPigZombieMage extends EntityMob implements IRangedAttackMob {
 				int i = 30;
 
 				if (this.world.getDifficulty() != EnumDifficulty.HARD) {
-					i = 60;
+					i = 50;
 				}
 
 				this.aiSpellAttack.setAttackCooldown(i);

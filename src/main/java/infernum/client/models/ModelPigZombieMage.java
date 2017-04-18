@@ -1,12 +1,15 @@
 package infernum.client.models;
 
+import infernum.common.entities.EntityPigZombieMage;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.MathHelper;
 
 public class ModelPigZombieMage extends ModelBiped {
@@ -85,13 +88,22 @@ public class ModelPigZombieMage extends ModelBiped {
 
 		float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
 		float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
-		this.bipedRightArm.rotateAngleZ = 0.0F;
-        this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
-        float f2 = -(float)Math.PI / 3.825F;
-        this.bipedRightArm.rotateAngleX = f2;
-        this.bipedRightArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
-        this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-        this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+		float f2 = -(float) Math.PI / 3.825F;
+		if (((EntityLiving) entityIn).getPrimaryHand() == EnumHandSide.RIGHT) {
+			this.bipedRightArm.rotateAngleZ = 0.0F;
+			this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
+			this.bipedRightArm.rotateAngleX = f2;
+			this.bipedRightArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
+			this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+			this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+		} else {
+			this.bipedLeftArm.rotateAngleZ = 0.0F;
+			this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
+			this.bipedLeftArm.rotateAngleX = f2;
+			this.bipedLeftArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
+			this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+			this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+		}
 	}
 
 	@Override
