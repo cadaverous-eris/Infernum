@@ -1,10 +1,19 @@
 #Creative Tab
 itemGroup.infernum.name=Infernum
 
+#Keys
+key.categories.infernum.name=Infernum
+key.open_spellbook.name=Open Infernal Tome
+key.switch_spell.name=Switch Spell
+
+#Status Messages
+infernum.message.no_spells=No Spells Available
+
 #Items
 item.infernum.zombie_pigman_heart.name=Rotting Pigman Heart
+item.infernum.beating_pigman_heart.name=Beating Pigman Heart
 item.infernum.infernal_spell_book.name=Infernal Tome
-item.infernum.spell_page.name=Spell Page
+item.infernum.spell_page.name=Spell Scroll
 
 #Spells
 infernum.empty.name=
@@ -12,6 +21,7 @@ infernum.blazing_fist.name=Blazing Fist
 infernum.soul_drain.name=Soul Drain
 infernum.ghastly_pulse.name=Ghastly Pulse
 infernum.obsidian_skin.name=Obsidian Skin
+infernum.withering_bolt.name=Withering Bolt
 infernum.nether_rift.name=Nether Rift
 
 #Spell Casting Types
@@ -25,4 +35,5 @@ infernum.blazing_fist.desc=Punch foes with fists of hellfire
 infernum.soul_drain.desc=Drain the souls of nearby creatures, dealing damage slowly over time
 infernum.ghastly_pulse.desc=Harness the gravity-defying powers of the ghast
 infernum.obsidian_skin.desc=Infuse your flesh with the strength of obsidian
+infernum.withering_bolt.desc=Cast forth a bolt of necrotic energy
 infernum.nether_rift.desc=Open a rift between dimensions, sucking nearby objects into or out of the nether

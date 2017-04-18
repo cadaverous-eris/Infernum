@@ -99,7 +99,7 @@ public class ItemSpellPage extends ItemBase {
 
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
-		return getSpell(stack).getUseTime();
+		return 72000;
 	}
 
 	@Override
@@ -111,12 +111,14 @@ public class ItemSpellPage extends ItemBase {
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entityLiving) {
-		if (entityLiving instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) entityLiving;
-			this.getSpell(stack).onCastFinish(world, player, stack);
+	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft) {
+		Spell spell = getSpell(stack);
+		if (entityLiving instanceof EntityPlayer && spell.getCastingType() == EnumCastingType.CHARGED) {
+			if (this.getMaxItemUseDuration(stack) - timeLeft >= spell.getUseTime()) {
+				EntityPlayer player = (EntityPlayer) entityLiving;
+				this.getSpell(stack).onCastFinish(world, player, stack);
+			}
 		}
-		return stack;
 	}
 
 	@Override

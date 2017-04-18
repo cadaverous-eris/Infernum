@@ -20,18 +20,21 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class InfernumItems {
 	
 	public static ItemZombiePigmanHeart ZOMBIE_PIGMAN_HEART;
-	public static ItemSpellBook SPELL_BOOK;
+	public static ItemBeatingPigmanHeart BEATING_PIGMAN_HEART;
+	//public static ItemSpellBook SPELL_BOOK;
 	public static ItemSpellPage SPELL_PAGE;
 	
 	public static void init() {
 		ZOMBIE_PIGMAN_HEART = new ItemZombiePigmanHeart();
-		SPELL_BOOK = new ItemSpellBook();
+		BEATING_PIGMAN_HEART = new ItemBeatingPigmanHeart();
+		//SPELL_BOOK = new ItemSpellBook();
 		SPELL_PAGE = new ItemSpellPage();
 	}
 	
 	public static void initItemModels() {
 		ZOMBIE_PIGMAN_HEART.initModel();
-		SPELL_BOOK.initModel();
+		BEATING_PIGMAN_HEART.initModel();
+		//SPELL_BOOK.initModel();
 		SPELL_PAGE.initModel();
 	}
 

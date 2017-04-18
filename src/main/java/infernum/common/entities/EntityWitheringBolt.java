@@ -117,7 +117,7 @@ public class EntityWitheringBolt extends Entity implements IProjectile {
 	}
 
 	protected void onImpact(RayTraceResult result) {
-		if (result.typeOfHit == RayTraceResult.Type.ENTITY && result.entityHit != null
+		if (!this.world.isRemote && result.typeOfHit == RayTraceResult.Type.ENTITY && result.entityHit != null
 				&& result.entityHit instanceof EntityLivingBase && !result.entityHit.equals(this.shootingEntity)) {
 			EntityLivingBase entity = (EntityLivingBase) result.entityHit;
 			entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, 150, this.strength));
