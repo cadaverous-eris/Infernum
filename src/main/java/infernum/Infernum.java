@@ -1,6 +1,10 @@
 package infernum;
 
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+
 import infernum.client.EventHandlerClient;
+import infernum.client.renderers.RenderKnowledgeTome;
 import infernum.common.CommonProxy;
 import infernum.common.EventHandlerCommon;
 import infernum.common.items.InfernumItems;
@@ -50,6 +54,7 @@ public class Infernum {
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(new EventHandlerClient());
 		MinecraftForge.EVENT_BUS.register(new EventHandlerCommon());
+		MinecraftForge.EVENT_BUS.register(new RenderKnowledgeTome());
 		proxy.preInit();
 	}
 

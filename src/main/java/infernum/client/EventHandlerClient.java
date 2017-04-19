@@ -1,6 +1,7 @@
 package infernum.client;
 
 import infernum.client.models.BakedModelSpellPage;
+import infernum.client.models.ModelKnowledgeBook;
 import infernum.client.models.ModelSpellPage;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraftforge.client.event.ModelBakeEvent;
@@ -13,13 +14,25 @@ public class EventHandlerClient {
 	
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
-	public void onModelBakeEvent(ModelBakeEvent event) {
+	public void onModelSpellPageBakeEvent(ModelBakeEvent event) {
 		Object object = event.getModelRegistry().getObject(ModelSpellPage.modelResourceLocation);
 		if (object instanceof IBakedModel) {
 			IBakedModel existingModel = (IBakedModel) object;
-			ModelSpellPage customModel = new ModelSpellPage(existingModel);
-			event.getModelRegistry().putObject(ModelSpellPage.modelResourceLocation, customModel);
+			ModelSpellPage spellPageModel = new ModelSpellPage(existingModel);
+			event.getModelRegistry().putObject(ModelSpellPage.modelResourceLocation, spellPageModel);
 			ModelSpellPage.SpellPageOverrideList.INSTANCE.clearCache();
+		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public void onModelKnowledgeBookBakeEvent(ModelBakeEvent event) {
+		Object object = event.getModelRegistry().getObject(ModelKnowledgeBook.modelResourceLocation);
+		if (object instanceof IBakedModel) {
+			IBakedModel existingModel = (IBakedModel) object;
+			ModelKnowledgeBook knowledgeBookModel = new ModelKnowledgeBook(existingModel);
+			event.getModelRegistry().putObject(ModelKnowledgeBook.modelResourceLocation, knowledgeBookModel);
+			ModelKnowledgeBook.KnowledgeBookOverrideList.INSTANCE.clearCache();
 		}
 	}
 

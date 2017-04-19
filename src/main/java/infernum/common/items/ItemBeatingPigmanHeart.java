@@ -9,7 +9,7 @@ public class ItemBeatingPigmanHeart extends ItemBase implements IInfernalPowerIt
 
 	public ItemBeatingPigmanHeart() {
 		super("beating_pigman_heart");
-		setMaxDamage(1023);
+		setMaxDamage(512);
 		setMaxStackSize(1);
 		setHasSubtypes(false);
 	}

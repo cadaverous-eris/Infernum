@@ -11,7 +11,7 @@ import net.minecraft.world.WorldServer;
 public class SpellGhastlyPulse extends Spell {
 
 	public SpellGhastlyPulse() {
-		super("ghastly_pulse", 10, 0, 3, EnumCastingType.INSTANT);
+		super("ghastly_pulse", 9, 0, 3, EnumCastingType.INSTANT);
 	}
 
 	@Override

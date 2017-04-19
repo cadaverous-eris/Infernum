@@ -12,6 +12,7 @@ public class InfernumSpells {
 	public static Spell GHASTLY_PULSE;
 	public static Spell OBSIDIAN_SKIN;
 	public static Spell WITHERING_BOLT;
+	public static Spell FIRE_BREATH;
 	
 	public static void init() {
 		BLAZING_FIST = new SpellBlazingFist();
@@ -19,6 +20,7 @@ public class InfernumSpells {
 		GHASTLY_PULSE = new SpellGhastlyPulse();
 		OBSIDIAN_SKIN = new SpellObsidianSkin();
 		WITHERING_BOLT = new SpellWitheringBolt();
+		FIRE_BREATH = new SpellFireBreath();
 	}
 
 }

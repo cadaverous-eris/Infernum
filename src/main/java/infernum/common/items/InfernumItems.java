@@ -23,12 +23,14 @@ public class InfernumItems {
 	public static ItemBeatingPigmanHeart BEATING_PIGMAN_HEART;
 	//public static ItemSpellBook SPELL_BOOK;
 	public static ItemSpellPage SPELL_PAGE;
+	public static ItemKnowledgeBook KNOWLEDGE_BOOK;
 	
 	public static void init() {
 		ZOMBIE_PIGMAN_HEART = new ItemZombiePigmanHeart();
 		BEATING_PIGMAN_HEART = new ItemBeatingPigmanHeart();
 		//SPELL_BOOK = new ItemSpellBook();
 		SPELL_PAGE = new ItemSpellPage();
+		KNOWLEDGE_BOOK = new ItemKnowledgeBook();
 	}
 	
 	public static void initItemModels() {
@@ -36,6 +38,7 @@ public class InfernumItems {
 		BEATING_PIGMAN_HEART.initModel();
 		//SPELL_BOOK.initModel();
 		SPELL_PAGE.initModel();
+		KNOWLEDGE_BOOK.initModel();
 	}
 
 }

@@ -9,7 +9,7 @@ public class ItemZombiePigmanHeart extends ItemBase implements IInfernalPowerIte
 
 	public ItemZombiePigmanHeart() {
 		super("zombie_pigman_heart");
-		setMaxDamage(255);
+		setMaxDamage(256);
 		setMaxStackSize(1);
 		setHasSubtypes(false);
 	}

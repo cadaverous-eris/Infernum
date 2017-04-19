@@ -34,6 +34,7 @@ public class InfernumEntities {
 		EntityRegistry.registerEgg(new ResourceLocation(Infernum.MODID + ":zombie_pigman_mage"), 14581128, 11799808);
 		EntityRegistry.registerModEntity(new ResourceLocation(Infernum.MODID + ":pigman_mage"), EntityPigMage.class, "pigman_mage", id++, Infernum.instance, 64, 1, true);
 		EntityRegistry.registerEgg(new ResourceLocation(Infernum.MODID + ":pigman_mage"), 14581128, 11665527);
+		EntityRegistry.registerModEntity(new ResourceLocation(Infernum.MODID + ":fire_breath"), EntityFireBreath.class, "fire_breath", id++, Infernum.instance, 64, 1, true);
 		
 		List<Biome> spawnBiomes = new ArrayList<Biome>();
 		spawnBiomes.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER));
@@ -49,6 +50,7 @@ public class InfernumEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EntityWitheringBolt.class, new RenderInvisibleEntity.Factory());
 		RenderingRegistry.registerEntityRenderingHandler(EntityPigZombieMage.class, new RenderPigZombieMage.Factory());
 		RenderingRegistry.registerEntityRenderingHandler(EntityPigMage.class, new RenderPigMage.Factory());
+		RenderingRegistry.registerEntityRenderingHandler(EntityFireBreath.class, new RenderInvisibleEntity.Factory());
 	}
 
 }

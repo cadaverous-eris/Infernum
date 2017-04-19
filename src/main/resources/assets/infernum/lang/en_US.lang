@@ -12,12 +12,14 @@ infernum.message.no_spells=No Spells Available
 #Items
 item.infernum.zombie_pigman_heart.name=Rotting Pigman Heart
 item.infernum.beating_pigman_heart.name=Beating Pigman Heart
-item.infernum.infernal_spell_book.name=Infernal Tome
+item.infernum.infernal_spell_book.name=Infernal Grimoire
 item.infernum.spell_page.name=Spell Scroll
-
+item.infernum.knowledge_book.name=Tome of Infernal Knowledge
 #Entities
+entity.withering_bolt.name=Withering Bolt
 entity.zombie_pigman_mage.name=Zombie Pigman Mage
 entity.pigman_mage.name=Pigman Mage
+entity.fire_breath.name=Fire Breath
 
 #Pigman Messages
 pigman.say.more_gold.message=*Grunt* More gold!
@@ -32,6 +34,7 @@ infernum.soul_drain.name=Soul Drain
 infernum.ghastly_pulse.name=Ghastly Pulse
 infernum.obsidian_skin.name=Obsidian Skin
 infernum.withering_bolt.name=Withering Bolt
+infernum.fire_breath.name=Fire Breath
 infernum.nether_rift.name=Nether Rift
 
 #Spell Casting Types
@@ -40,10 +43,19 @@ melee.name=Melee
 continuous.name=Continuous
 charged.name=Charged
 
-#Spell Descriptions (21 chars per line)
+#Spell Descriptions
 infernum.blazing_fist.desc=Punch foes with fists of hellfire
 infernum.soul_drain.desc=Drain the souls of nearby creatures, dealing damage slowly over time
 infernum.ghastly_pulse.desc=Harness the gravity-defying powers of the ghast
 infernum.obsidian_skin.desc=Infuse your flesh with the strength of obsidian
 infernum.withering_bolt.desc=Cast forth a bolt of necrotic energy
+infernum.fire_breath.desc=Exhale a stream of flame
 infernum.nether_rift.desc=Open a rift between dimensions, sucking nearby objects into or out of the nether
+
+#Knowledge Book
+knowledgebook.page_0.left=The realm known as the Nether can be a source of great power, if utilized properly. In order to harness this power, one must first find a way to store that power, in such a way that it may be easily accessed and consumed for spell casting. It has been observed that the hearts of the more porcine inhabitants of the Nether realm may meet these criteria. It has also been observed, however, that due to their tendency to defend themselves and each other, it can be difficult to kill one without damaging the heart.
+knowledgebook.page_0.right=Once a suitable means of storing the power of the Nether has been aquired, the next step would be to find out how to fill it with power. Simply being within the Nether realm should cause the storage object to fill itself with as much power as it can, although the process is known to take some time.
+knowledgebook.page_1.left=In order to put any stored power to use, one must aquire a medium through which they might cast spells. Scrolls are the most common solution to this problem. Scrolls cannot be crafted in any way known to man, and therefore must be aquired from subhuman spell-casters from the Nether realm. The undead mages tend not respond to any attempts at bargaining, and the scrolls they seem to lose function once their owner has been properly killed. However, there are tales of living mages residing in the Nether, in small towers of nether brick and obsidian.
+knowledgebook.page_1.right=According to legend, these porcine spell-casters have an unimaginable lust for gold, and may be willing to offers some spell scrolls, for the right price.
+knowledgebook.page_2.left=Once one has possession of both a means of storing the Nether's power, and a medium through which to cast spells with that power, they may still only cast spells if they have enough power available, and their means of power storage is held in their off-hand. Any attempts to cast spells without some form of power storage in the off-hand will simply fizzle out before being cast.
+knowledgebook.page_2.right=There are four distinct types of spell. "Instant" spells can be cast instantaniously, with no delay. "Melee" spells are cast by physically hitting a target entity. "Continuous" spells will continue to be cast repeatedly for as long as the caster desires. "Charged" spells may only be cast after they have built up enough charge, which can take a few moments.

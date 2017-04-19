@@ -11,7 +11,7 @@ import net.minecraft.world.WorldServer;
 public class SpellObsidianSkin extends Spell {
 	
 	public SpellObsidianSkin() {
-		super("obsidian_skin", 10, 0, 2, EnumCastingType.INSTANT);
+		super("obsidian_skin", 15, 0, 2, EnumCastingType.INSTANT);
 	}
 	
 	@Override

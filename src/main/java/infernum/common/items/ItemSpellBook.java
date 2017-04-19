@@ -54,11 +54,11 @@ public class ItemSpellBook extends ItemBase {
 	}
 
 	public static Spell getSpell(ItemStack stack) {
-		if (!stack.getItem().equals(InfernumItems.SPELL_BOOK)) {
+		//if (!stack.getItem().equals(InfernumItems.SPELL_BOOK)) {
 			return Spell.EMPTY_SPELL;
-		}
-		ItemStack spellStack = stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).getStackInSlot(stack.getMetadata());
-		return ItemSpellPage.getSpell(spellStack);
+		//}
+		//ItemStack spellStack = stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).getStackInSlot(stack.getMetadata());
+		//return ItemSpellPage.getSpell(spellStack);
 	}
 
 	public boolean updateItemStackNBT(NBTTagCompound nbt) {
