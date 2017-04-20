@@ -20,6 +20,8 @@ public class WorldGeneratorInfernum implements IWorldGenerator {
 			
 			new PigmanMageTowerGenerator().generate(world, world.rand, chunkCenter);
 			
+			new InfernalMonumentGenerator().generate(world, world.rand, chunkCenter);
+			
 		}
 
 	}

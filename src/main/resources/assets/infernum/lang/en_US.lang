@@ -15,6 +15,10 @@ item.infernum.beating_pigman_heart.name=Beating Pigman Heart
 item.infernum.infernal_spell_book.name=Infernal Grimoire
 item.infernum.spell_page.name=Spell Scroll
 item.infernum.knowledge_book.name=Tome of Infernal Knowledge
+
+#Blocks
+tile.infernum.pedestal.name=Pedestal
+
 #Entities
 entity.withering_bolt.name=Withering Bolt
 entity.zombie_pigman_mage.name=Zombie Pigman Mage

@@ -1,6 +1,7 @@
 package infernum.common;
 
 import infernum.Infernum;
+import infernum.common.blocks.InfernumBlocks;
 import infernum.common.entities.InfernumEntities;
 import infernum.common.items.InfernumItems;
 import infernum.common.spells.InfernumSpells;
@@ -15,6 +16,7 @@ public class CommonProxy {
 		PacketHandler.registerMessages();
 		InfernumSpells.init();
 		InfernumItems.init();
+		InfernumBlocks.init();
 		InfernumEntities.init();
 		
 		GameRegistry.registerWorldGenerator(new WorldGeneratorInfernum(), 0);
