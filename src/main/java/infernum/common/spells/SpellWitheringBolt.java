@@ -12,7 +12,7 @@ import network.PacketHandler;
 public class SpellWitheringBolt extends Spell {
 
 	public SpellWitheringBolt() {
-		super("withering_bolt", 3, 32, 1, EnumCastingType.CHARGED);
+		super("withering_bolt", 3, 20, 1, EnumCastingType.CHARGED);
 	}
 	
 	@Override

@@ -23,17 +23,12 @@ public class ItemZombiePigmanHeart extends ItemBase implements IInfernalPowerIte
 
 	@Override
 	public boolean showDurabilityBar(ItemStack stack) {
-		return true;
+		return false;
 	}
 
 	@Override
 	public int getPower(ItemStack stack) {
 		return stack.getMaxDamage() - stack.getItemDamage();
-	}
-
-	@Override
-	public int getRGBDurabilityForDisplay(ItemStack stack) {
-		return MathHelper.hsvToRGB(Math.max(0.0F, (float) getDurabilityForDisplay(stack)) / 6.0F, 1.0F, 1.0F);
 	}
 
 }

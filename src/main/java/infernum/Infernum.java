@@ -38,7 +38,7 @@ public class Infernum {
 	public static CreativeTabs tab = new CreativeTabs("infernum") {
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(InfernumItems.ZOMBIE_PIGMAN_HEART);
+			return new ItemStack(InfernumItems.BEATING_PIGMAN_HEART);
 		}
 
 		@SideOnly(Side.CLIENT)
