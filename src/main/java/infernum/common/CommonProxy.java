@@ -4,11 +4,11 @@ import infernum.Infernum;
 import infernum.common.blocks.InfernumBlocks;
 import infernum.common.entities.InfernumEntities;
 import infernum.common.items.InfernumItems;
+import infernum.common.network.PacketHandler;
 import infernum.common.spells.InfernumSpells;
 import infernum.common.world.WorldGeneratorInfernum;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import network.PacketHandler;
 
 public class CommonProxy {
 	

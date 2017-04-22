@@ -1,5 +1,7 @@
 package infernum.common.spells;
 
+import infernum.common.network.MessageSoulDrainFX;
+import infernum.common.network.PacketHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,8 +17,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import network.MessageSoulDrainFX;
-import network.PacketHandler;
 
 public class SpellSoulDrain extends Spell {
 

@@ -1,13 +1,13 @@
 package infernum.common.spells;
 
 import infernum.common.entities.EntityWitheringBolt;
+import infernum.common.network.PacketHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import network.PacketHandler;
 
 public class SpellWitheringBolt extends Spell {
 

@@ -1,4 +1,4 @@
-package network;
+package infernum.common.network;
 
 import infernum.Infernum;
 import net.minecraftforge.fml.common.network.NetworkRegistry;

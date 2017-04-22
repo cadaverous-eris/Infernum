@@ -1,4 +1,4 @@
-package network;
+package infernum.common.network;
 
 import java.util.Random;
 
@@ -59,18 +59,18 @@ public class MessageSoulDrainFX implements IMessage {
 		@SideOnly(Side.CLIENT)
 		@Override
 		public IMessage onMessage(final MessageSoulDrainFX message, final MessageContext ctx) {
-			Minecraft.getMinecraft().addScheduledTask(()-> {
-				World world = Minecraft.getMinecraft().world;
-				if (world.isRemote) {
-					for (double i = 0; i < 8; i++) {
-						double xCoord = message.posX + (rand.nextDouble() - 0.5);
-						double yCoord = message.posY + (rand.nextDouble() - 0.5);
-						double zCoord = message.posZ + (rand.nextDouble() - 0.5);
-						world.spawnParticle(EnumParticleTypes.CRIT, true, xCoord, yCoord, zCoord, (rand.nextDouble() - 0.5), (rand.nextDouble() - 0.5), (rand.nextDouble() - 0.5));
-					}
-					ParticleUtils.spawnParticleBeam(world, EnumParticleTypes.CRIT, message.posX, message.posY, message.posZ, message.castX, message.castY, message.castZ, 0.2);
+			World world = Minecraft.getMinecraft().world;
+			if (world.isRemote) {
+				for (double i = 0; i < 8; i++) {
+					double xCoord = message.posX + (rand.nextDouble() - 0.5);
+					double yCoord = message.posY + (rand.nextDouble() - 0.5);
+					double zCoord = message.posZ + (rand.nextDouble() - 0.5);
+					world.spawnParticle(EnumParticleTypes.CRIT, true, xCoord, yCoord, zCoord, (rand.nextDouble() - 0.5),
+							(rand.nextDouble() - 0.5), (rand.nextDouble() - 0.5));
 				}
-			});
+				ParticleUtils.spawnParticleBeam(world, EnumParticleTypes.CRIT, message.posX, message.posY, message.posZ,
+						message.castX, message.castY, message.castZ, 0.2);
+			}
 			return null;
 		}
 	}
