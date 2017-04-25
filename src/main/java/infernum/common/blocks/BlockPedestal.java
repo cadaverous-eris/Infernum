@@ -64,26 +64,28 @@ public class BlockPedestal extends Block implements ITileEntityProvider {
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return new TilePedestal();
 	}
-	
+
 	@Override
 	public boolean eventReceived(IBlockState state, World worldIn, BlockPos pos, int id, int param) {
 		super.eventReceived(state, worldIn, pos, id, param);
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 		return tileentity == null ? false : tileentity.receiveClientEvent(id, param);
 	}
-	
+
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		ItemStack stack = ((TilePedestal)worldIn.getTileEntity(pos)).getStack();
-		worldIn.removeTileEntity(pos);
-		spawnAsEntity(worldIn, pos, stack);
+		if (worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof TilePedestal) {
+			ItemStack stack = ((TilePedestal) worldIn.getTileEntity(pos)).getStack();
+			worldIn.removeTileEntity(pos);
+			spawnAsEntity(worldIn, pos, stack);
+		}
 		super.breakBlock(worldIn, pos, state);
 	}
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
 			EnumFacing side, float hitX, float hitY, float hitZ) {
-		
+
 		if (!world.isRemote && world.getTileEntity(pos) instanceof TilePedestal) {
 			TilePedestal pedestal = (TilePedestal) world.getTileEntity(pos);
 			if (pedestal.getStack().func_190926_b()) {
@@ -94,16 +96,16 @@ public class BlockPedestal extends Block implements ITileEntityProvider {
 				}
 			} else {
 				ItemStack stack = pedestal.getStack();
-                pedestal.setStack(ItemStack.field_190927_a);
-                if (!player.inventory.addItemStackToInventory(stack)) {
-                    EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY()+1, pos.getZ(), stack);
-                    world.spawnEntity(entityItem);
-                } else {
-                    player.openContainer.detectAndSendChanges();
-                }
+				pedestal.setStack(ItemStack.field_190927_a);
+				if (!player.inventory.addItemStackToInventory(stack)) {
+					EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY() + 1, pos.getZ(), stack);
+					world.spawnEntity(entityItem);
+				} else {
+					player.openContainer.detectAndSendChanges();
+				}
 			}
 		}
-		
+
 		return true;
 	}
 
