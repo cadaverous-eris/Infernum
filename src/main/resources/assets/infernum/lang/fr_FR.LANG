@@ -1,0 +1,65 @@
+#Creative Tab
+itemGroup.infernum.name=Infernum
+
+#Keys
+key.categories.infernum.name=Infernum
+key.open_spellbook.name=Ouvrir le Livre de sort Infernal
+key.switch_spell.name=Changer de sort
+
+#Status Messages
+infernum.message.no_spells=Aucun sorts disponibles
+
+#Items
+item.infernum.zombie_pigman_heart.name=Coeur de Zombie Pigman pourri
+item.infernum.beating_pigman_heart.name=Coeur pure de Pigman
+item.infernum.infernal_spell_book.name=Le Grimoire Infernal
+item.infernum.spell_page.name=Parchemin de sort
+item.infernum.knowledge_book.name=Encyclopédie Infernal
+
+#Blocks
+tile.infernum.pedestal.name=Piédestal
+
+#Entities
+entity.withering_bolt.name=Energie du Nécromancien
+entity.zombie_pigman_mage.name=Sorcier Zombie Pigman
+entity.pigman_mage.name=Sorcier Pigman
+entity.fire_breath.name=Souffle de Feu
+
+#Pigman Messages
+pigman.say.more_gold.message=*GREUUUUU* Plus d'or!
+pigman.say.need_gold.message=*HUMMMM* Tu veux... de l'or!
+pigman.say.angry.message=*AAAAAARRH*
+pigman.say.thanks.message=*OH!* Un grand merci! Prends cette magie!
+
+#Spells
+infernum.empty.name=
+infernum.blazing_fist.name=Poing Ardent
+infernum.soul_drain.name=Capture d'âme
+infernum.ghastly_pulse.name=Impulsion Ghasto
+infernum.obsidian_skin.name=Peau d'Obsidienne
+infernum.withering_bolt.name=Energie du Nécromancien
+infernum.fire_breath.name=Soufle de Feu
+infernum.nether_rift.name=Faille du Nether
+
+#Spell Casting Types
+instant.name=Instantané
+melee.name=Corps à Corps
+continuous.name=En continue
+charged.name=A Charge
+
+#Spell Descriptions
+infernum.blazing_fist.desc=Perforer vos enemmies avec le poing ardent des enfers
+infernum.soul_drain.desc=Drainer l'âme des créatures proches, fait des dommages sur la durée
+infernum.ghastly_pulse.desc=Exploiter les pouvoirs gravitationnels des Ghasts 
+infernum.obsidian_skin.desc=Renforcer votre chair avec de l'obsidienne
+infernum.withering_bolt.desc=Lance un concentré d'énergie nécrosée
+infernum.fire_breath.desc=Cracher un torrent de flamme
+infernum.nether_rift.desc=Ouvre une faille inter-dimensionelle qui absorbe les objets
+
+#Knowledge Book
+knowledgebook.page_0.left=Le royaume connu sous le nom de Nether peut être une source de grande puissance pour celui qui sait la manier. Afin d'exploiter ce pouvoir, vous devez trouver un moyen de stocker cette puissance, pour qu'elle soit accessible facilement et ensuite la consummer avec vos sorts. Peut être que les habitants porcins du Nether ont finalement un *coeur pure* pour vous aider dans cette quête de puissance. Mais la tâche ne sera pas facile sans verser une goutte de sang. Armez-vous de patience ...
+knowledgebook.page_0.right=Une fois le moyen adéquat de stockage de la puissance du nether acquis, la prochaine étape consistera à le remplir. Le simple fait d'être dans le Nether facilitera le remplissage de puissance, soyez patient.
+knowledgebook.page_1.left=Trouver le moyen de mémorisée les différents sortilèges pour facilement les lancer. Trop compliqué pour l'homme à crafter vous allez devoir partir en quête d'un puissant mage *avare* de connaisances. Ne vous aventurez pas à acquérir ceux des sorciers Zombies Pigmen, la négociation ne marchera pas sur eux. Et les parchemins perdent leurs pouvoirs une fois le propriétires correctement tués. Cependant l'histoire raconte qu'il existerai dans les coins reculés du Royaume des Sorciers Pigmen résidant dans de petites tours de briques et d'obsidiennes.
+knowledgebook.page_1.right=Selon la légende, ces sorciers porcins feraient tout pour quelques trésors. Voir même vendre leurs magies.
+knowledgebook.page_2.left=Pour utiliser correctement cette magie vous devez possédez en main le réceptacle de puissance et le parchemins. Mais attention chaque sort coûte de la puissance. Toute tentative de lancer un sort sans puissance stockée en main sera vain.
+knowledgebook.page_2.right=Il éxiste quatre différents types de sorts. Les sorts *Instantané* peuvent être lancés instantanéments sans délai. Les sorts dit de *corps à corps* doivent se lancer en frappant physiquement la cible. Les sorts *En continue* continueront à être actifs aussi longtemps que le lanceur le désire. Les sorts *A charge* ne peuvent être actionné seulement avec la bonne quantité de puissance chargés.
